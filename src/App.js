@@ -1,24 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import Home from "./Pages/Home/Home";
+import { useState } from "react";
+import {
+  BottomNavigation,
+  BottomNavigationAction,
+  createMuiTheme,
+  ThemeProvider,
+} from "@material-ui/core";
+import HomeIcon from "@material-ui/icons/Home";
+import Kalender from "./Pages/Kalender/Kalender";
+import { purple } from "@material-ui/core/colors";
 
 function App() {
+  const [page, setPage] = useState(0);
+
+  const darkTheme = createMuiTheme({
+    palette: {
+      type: "dark",
+      primary: {
+        main: "#2196f3",
+      },
+      secondary: {
+        main: "#f44336",
+      },
+    },
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={darkTheme}>
+      {page === 0 ? <Home /> : <Kalender />}
+      <BottomNavigation
+        value={page}
+        onChange={(e, newValue) => {
+          setPage(newValue);
+        }}
+        showLabels
+        className="fixed bottom-0 w-full"
+      >
+        <BottomNavigationAction label="Overzicht" icon={<HomeIcon />} />
+        <BottomNavigationAction label="Kalender" icon={<HomeIcon />} />
+      </BottomNavigation>
+    </ThemeProvider>
   );
 }
 
