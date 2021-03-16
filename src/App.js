@@ -30,7 +30,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider theme={darkTheme}>
-        <div className="flex flex-col justify-center container mx-auto px-4 space-y-4 mt-3 mb-6">
+        <div className="flex flex-col justify-center container mx-auto px-4 space-y-4 mt-3 mb-20">
           {page === 0 ? <Home /> : <Kalender />}
         </div>
         <BottomNavigation

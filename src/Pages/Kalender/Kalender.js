@@ -1,17 +1,17 @@
-import { useQuery } from "react-query";
-import { calendarUrl } from "../../Api";
 import Skeleton from "@material-ui/lab/Skeleton";
 import Card from "../../Components/Card";
+import { useTeamCalendar } from "../../Hooks/Api/api";
 
 const Kalender = () => {
-  const { isLoading, error, data } = useQuery("calendar", () =>
-    fetch(calendarUrl).then((res) => res.json())
-  );
-  const teamCalendar = data?.data?.teamCalendar;
-  console.log({ data });
+  const [isLoading, error, teamCalendar] = useTeamCalendar();
+
   if (isLoading) {
     return (
       <>
+        <Skeleton variant="rect" width="100%" height={100} />
+        <Skeleton variant="rect" width="100%" height={100} />
+        <Skeleton variant="rect" width="100%" height={100} />
+        <Skeleton variant="rect" width="100%" height={100} />
         <Skeleton variant="rect" width="100%" height={100} />
         <Skeleton variant="rect" width="100%" height={100} />
         <Skeleton variant="rect" width="100%" height={100} />
