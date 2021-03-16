@@ -8,6 +8,11 @@ body {
     color: rgba(255, 255, 255, 0.753);
 }
 
+.MuiBottomNavigationAction-root:focus {
+  outline: none !important;
+}
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
