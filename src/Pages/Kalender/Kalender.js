@@ -25,7 +25,11 @@ const Kalender = () => {
     return <h1>Error</h1>;
   }
 
-  return teamCalendar?.map((g) => <Card>{g.homeTeam.name}</Card>);
+  return teamCalendar?.map((g) => (
+    <Card>
+      {g.homeTeam.name} - {g.awayTeam.name}
+    </Card>
+  ));
 };
 
 export default Kalender;

@@ -1,12 +1,7 @@
-import Card from "../../Components/Card"
+import LastPlayedMatchContainer from "../../Components/LastPlayedMatchContainer";
 
 const Home = () => {
-    return (
-        < >
-            <Card>Jowkens</Card>
-            <Card>Hallo</Card>
-        </>
-    )
-}
+  return <div className="grid-cols-1"></div>;
+};
 
-export default Home
+export default Home;
